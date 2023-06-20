@@ -1,14 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC, Dispatch } from 'react'
-import { useState } from 'react'
 import type { FC, Dispatch } from 'react'
+import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { productdetail } from '../../../constant/common'
 import { Rating } from '@mui/material'
 import { addProduct } from '../../../redux/action/cart'
-import { useSelector } from 'react-redux'
-// import { RadioGroup } from '@headlessui/react'
 
 const reviews = { href: '#', average: 3, totalCount: 147 }
 
