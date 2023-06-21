@@ -18,7 +18,6 @@ const useStyles = makeStyles(() => ({
 
 const CartButton: FC = () => {
     const { cartList } = useSelector((state: any) => state.cart);
-    console.log('length: ', cartList.length);
 
     const classes = useStyles();
     const [open, setOpen] = useState<boolean>(false);

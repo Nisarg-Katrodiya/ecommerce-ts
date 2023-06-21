@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { DeleteCart } from '../../redux/action/cart'
 
 const CartList: FC<any> = ({ cart, index }: any) => {
+    console.log('index: ', index);
+
     const dispatch: Dispatch<any> = useDispatch();
     const { cartList } = useSelector((state: any) => state.cart);
     const [count, setCount] = useState<number>(1);
@@ -20,8 +22,7 @@ const CartList: FC<any> = ({ cart, index }: any) => {
         setCount(count - 1)
     };
     const handleDelete = (cartData: any) => {
-        const cart: any[] = cartList
-        dispatch(DeleteCart(cartData, cart))
+        dispatch(DeleteCart(cartData, cartList))
     };
     return (
         <>
@@ -50,7 +51,6 @@ const CartList: FC<any> = ({ cart, index }: any) => {
 
                             <div className="counter_quantity" >
                                 <button className="increment Mui-disabled" onClick={decrementCount} type="button">-</button>
-                                {/* {cart.quantity ? (cart.quantity) : 1} */}
                                 {count ? (count) : 1}
                                 <button className="increment" onClick={incrementCount} type="button" >+</button>
                             </div>

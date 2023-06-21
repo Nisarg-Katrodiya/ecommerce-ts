@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState } from 'react'
 import type { FC, Dispatch } from "react"
 import { useDispatch } from "react-redux";
 import { Button } from "@mui/material";
@@ -21,11 +22,12 @@ type propStype = {
 }
 
 const ProductCard: FC<propStype> = ({ product }: propStype) => {
+    const [count] = useState<number>(1);
     const dispatch: Dispatch<any> = useDispatch();
 
     const navigate = useNavigate();
     const addTOCart = () => {
-        dispatch(addProduct(product));
+        dispatch(addProduct({ ...product, quantity: count }));
         console.log('product: ', product);
     }
     return (

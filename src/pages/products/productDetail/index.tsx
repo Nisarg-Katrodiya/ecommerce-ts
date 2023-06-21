@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { FC, Dispatch } from 'react'
 import { useState } from 'react'
+import type { FC, Dispatch } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { productdetail } from '../../../constant/common'
+import { productDetail } from '../../../constant/common'
 import { Rating } from '@mui/material'
 import { addProduct } from '../../../redux/action/cart'
+// import { RadioGroup } from '@headlessui/react'
 
 const reviews = { href: '#', average: 3, totalCount: 147 }
 
@@ -13,6 +14,7 @@ const ProductDetail: FC = () => {
     const dispatch: Dispatch<any> = useDispatch();
     const location = useLocation();
     const productDetails = location.state;
+    console.log('productDetails: ', productDetails);
 
     const [count, setCount] = useState(1)
     const incrementCount = () => {
@@ -32,7 +34,7 @@ const ProductDetail: FC = () => {
                 <div className="pt-6">
                     <nav aria-label="Breadcrumb">
                         <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                            {productdetail.breadcrumbs.map((breadcrumb) => (
+                            {productDetail.breadcrumbs.map((breadcrumb) => (
                                 <li key={breadcrumb.id}>
                                     <div className="flex items-center">
                                         <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">

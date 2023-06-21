@@ -44,7 +44,6 @@ export const cartSlice = createSlice({
         },
         // delete User
         DeleteCartProduct(state, action: PayloadAction<any[]>) {
-            console.log(' action.payload: ', action.payload);
             state.fetching = false;
             state.cartList = action.payload;
         },

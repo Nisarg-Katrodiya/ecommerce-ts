@@ -7,11 +7,20 @@ import { useSelector } from 'react-redux'
 import CartList from './cartList'
 
 
+
 const Cart: FC<any> = ({ handleClose }: any) => {
     const { cartList } = useSelector((state: any) => state.cart);
     const navigate = useNavigate();
 
-
+    const getTotal = () => {
+        let totalQuantity = 0
+        let totalPrice = 0
+        cartList.map((item: any) => {
+            totalQuantity += item.quantity
+            totalPrice += item.price * item.quantity
+        })
+        return { totalPrice, totalQuantity }
+    }
     return (
 
         <Dialog.Panel className="pointer-events-auto w-screen max-w-md" >
@@ -44,7 +53,8 @@ const Cart: FC<any> = ({ handleClose }: any) => {
                 <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                     <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$262.00</p>
+                        <p> ({getTotal().totalQuantity} item)
+                            : <strong>${getTotal().totalPrice}</strong></p>
                     </div>
                     <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                     <div className="mt-6">

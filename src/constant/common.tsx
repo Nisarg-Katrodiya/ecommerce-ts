@@ -1,5 +1,5 @@
 
-const productdetail = {
+const productDetail = {
     name: 'Basic Tee 6-Pack',
     breadcrumbs: [
         { id: 1, name: 'Products', href: '/' },
@@ -131,4 +131,4 @@ const navigation = [
   }
 ];
 
-export { productdetail, sortOptions, subCategories, filters, navigation }
+export { productDetail, sortOptions, subCategories, filters, navigation }

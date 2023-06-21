@@ -17,13 +17,13 @@ export const addProduct = (prams: any) => async (dispatch: any) =>
         }
     });
 
-export const DeleteCart = (cartData: any, cart: any[]) => async (dispatch: any) =>
+export const DeleteCart = (cartData: any, cartList: any[]) => async (dispatch: any) =>
     new Promise((resolve: any, reject: any) => {
-        const index = cart.findIndex((row: any) => row.id === cartData.id)
+        const index = cartList.findIndex((row: any) => row.id === cartData.id)
         dispatch(FetchCart());
         try {
             if (index !== -1) {
-                const newArray = cart.filter((data) => data.id !== cartData.id)
+                const newArray = cartList.filter((data) => data.id !== cartData.id)
                 dispatch(DeleteCartProduct(newArray));
                 resolve(newArray);
             }
